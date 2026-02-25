@@ -1,0 +1,25 @@
+FROM mcr.microsoft.com/devcontainers/python:3.13
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Install ESP-IDF dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    wget \
+    flex \
+    bison \
+    gperf \
+    ccache \
+    libffi-dev \
+    libssl-dev \
+    dfu-util \
+    libusb-1.0-0 \
+    libgcrypt20 \
+    libglib2.0-0 \
+    libpixman-1-0 \
+    libsdl2-2.0-0 \
+    libslirp0 \
+    cmake \
+    ninja-build \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*

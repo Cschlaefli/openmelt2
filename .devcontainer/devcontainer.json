@@ -1,0 +1,27 @@
+{
+  "name": "OpenMelt ESP-IDF",
+  "build": {
+    "dockerfile": "Containerfile",
+    "context": "."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "espressif.esp-idf-extension",
+      ],
+      "settings": {
+        "idf.espIdfPath": "/opt/esp/idf",
+        "idf.toolsPath": "/opt/esp",
+        "idf.pythonBinPath": "/opt/esp/python_env/idf5.4_py3.13_env/bin/python"
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "runArgs": [
+    "--privileged"
+  ],
+  "mounts": [
+    "type=volume,target=/opt/esp"
+  ],
+  "postCreateCommand": "pip install --upgrade pip"
+}
